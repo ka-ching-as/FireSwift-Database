@@ -210,7 +210,7 @@ open class StructureEncoder {
     /// - returns: A new `Data` value containing the encoded JSON data.
     /// - throws: `EncodingError.invalidValue` if a non-conforming floating-point value is encountered during encoding, and the encoding strategy is `.throw`.
     /// - throws: An error if any value throws an error during encoding.
-    open func encode<T : Encodable>(_ value: T) throws -> Data {
+    open func encode<T : Encodable>(_ value: T) throws -> Any {
         let encoder = _StructureEncoder(options: self.options)
 
         guard let topLevel = try encoder.box_(value) else {
@@ -225,12 +225,7 @@ open class StructureEncoder {
             throw EncodingError.invalidValue(value, EncodingError.Context(codingPath: [], debugDescription: "Top-level \(T.self) encoded as string JSON fragment."))
         }
 
-        let writingOptions = JSONSerialization.WritingOptions(rawValue: self.outputFormatting.rawValue)
-        do {
-           return try JSONSerialization.data(withJSONObject: topLevel, options: writingOptions)
-        } catch {
-            throw EncodingError.invalidValue(value, EncodingError.Context(codingPath: [], debugDescription: "Unable to encode the given top-level value to JSON.", underlyingError: error))
-        }
+        return topLevel
     }
 }
 
@@ -1096,16 +1091,9 @@ open class StructureDecoder {
     /// - returns: A value of the requested type.
     /// - throws: `DecodingError.dataCorrupted` if values requested from the payload are corrupted, or if the given data is not valid JSON.
     /// - throws: An error if any value throws an error during decoding.
-    open func decode<T : Decodable>(_ type: T.Type, from data: Data) throws -> T {
-        let topLevel: Any
-        do {
-           topLevel = try JSONSerialization.jsonObject(with: data)
-        } catch {
-            throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: "The given data was not valid JSON.", underlyingError: error))
-        }
-
-        let decoder = _StructureDecoder(referencing: topLevel, options: self.options)
-        guard let value = try decoder.unbox(topLevel, as: type) else {
+    open func decode<T : Decodable>(_ type: T.Type, from structure: Any) throws -> T {
+        let decoder = _StructureDecoder(referencing: structure, options: self.options)
+        guard let value = try decoder.unbox(structure, as: type) else {
             throw DecodingError.valueNotFound(type, DecodingError.Context(codingPath: [], debugDescription: "The given data did not contain a top-level value."))
         }
 
