@@ -10,13 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-//===----------------------------------------------------------------------===//
-// Errors
-//===----------------------------------------------------------------------===//
-
-// Both of these error types bridge to NSError, and through the entry points they use, no further work is needed to make them localized.
-extension EncodingError : LocalizedError {}
-extension DecodingError : LocalizedError {}
+import Foundation
 
 //===----------------------------------------------------------------------===//
 // Error Utilities
