@@ -10,7 +10,7 @@
 		31620D662109ED7F00085F66 /* SwiftyFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D5C2109ED7F00085F66 /* SwiftyFirebase.framework */; };
 		31620D6B2109ED7F00085F66 /* SwiftyFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D6A2109ED7F00085F66 /* SwiftyFirebaseTests.swift */; };
 		31620D6D2109ED7F00085F66 /* SwiftyFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		31620D782109EE9C00085F66 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D772109EE9C00085F66 /* JSONEncoder.swift */; };
+		31620D782109EE9C00085F66 /* StructureEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D772109EE9C00085F66 /* StructureEncoder.swift */; };
 		31620D7A2109EEA200085F66 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D792109EEA200085F66 /* Codable.swift */; };
 		31620D7C2109EEF600085F66 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 31620D7B2109EEF600085F66 /* LICENSE.txt */; };
 /* End PBXBuildFile section */
@@ -32,7 +32,7 @@
 		31620D652109ED7F00085F66 /* SwiftyFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31620D6A2109ED7F00085F66 /* SwiftyFirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyFirebaseTests.swift; sourceTree = "<group>"; };
 		31620D6C2109ED7F00085F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31620D772109EE9C00085F66 /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		31620D772109EE9C00085F66 /* StructureEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructureEncoder.swift; sourceTree = "<group>"; };
 		31620D792109EEA200085F66 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		31620D7B2109EEF600085F66 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,7 +98,7 @@
 			children = (
 				31620D7B2109EEF600085F66 /* LICENSE.txt */,
 				31620D792109EEA200085F66 /* Codable.swift */,
-				31620D772109EE9C00085F66 /* JSONEncoder.swift */,
+				31620D772109EE9C00085F66 /* StructureEncoder.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31620D7A2109EEA200085F66 /* Codable.swift in Sources */,
-				31620D782109EE9C00085F66 /* JSONEncoder.swift in Sources */,
+				31620D782109EE9C00085F66 /* StructureEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
