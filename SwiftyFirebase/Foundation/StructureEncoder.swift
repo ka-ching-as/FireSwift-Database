@@ -20,24 +20,6 @@ import Foundation
 open class StructureEncoder {
     // MARK: Options
 
-    /// The formatting of the output JSON data.
-    public struct OutputFormatting : OptionSet {
-        /// The format's default value.
-        public let rawValue: UInt
-
-        /// Creates an OutputFormatting value with the given raw value.
-        public init(rawValue: UInt) {
-            self.rawValue = rawValue
-        }
-
-        /// Produce human-readable JSON with indented output.
-        public static let prettyPrinted = OutputFormatting(rawValue: 1 << 0)
-
-        /// Produce JSON with dictionary keys sorted in lexicographic order.
-        @available(OSX 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
-        public static let sortedKeys    = OutputFormatting(rawValue: 1 << 1)
-    }
-
     /// The strategy to use for encoding `Date` values.
     public enum DateEncodingStrategy {
         /// Defer to `Date` for choosing an encoding. This is the default strategy.
@@ -160,9 +142,6 @@ open class StructureEncoder {
             return result
         }
     }
-
-    /// The output format to produce. Defaults to `[]`.
-    open var outputFormatting: OutputFormatting = []
 
     /// The strategy to use in encoding dates. Defaults to `.deferredToDate`.
     open var dateEncodingStrategy: DateEncodingStrategy = .deferredToDate
