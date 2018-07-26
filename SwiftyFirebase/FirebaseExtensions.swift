@@ -49,3 +49,10 @@ public extension DatabaseQuery {
             })
     }
 }
+
+public extension DatabaseReference {
+    func setValue<T>(_ value: T) throws where T: Encodable {
+        let encoder = StructureEncoder()
+        self.setValue(try encoder.encode(value))
+    }
+}
