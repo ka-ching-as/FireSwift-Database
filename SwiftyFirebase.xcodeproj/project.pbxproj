@@ -10,6 +10,9 @@
 		31620D662109ED7F00085F66 /* SwiftyFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D5C2109ED7F00085F66 /* SwiftyFirebase.framework */; };
 		31620D6B2109ED7F00085F66 /* SwiftyFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D6A2109ED7F00085F66 /* SwiftyFirebaseTests.swift */; };
 		31620D6D2109ED7F00085F66 /* SwiftyFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31620D782109EE9C00085F66 /* JSONEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D772109EE9C00085F66 /* JSONEncoder.swift */; };
+		31620D7A2109EEA200085F66 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D792109EEA200085F66 /* Codable.swift */; };
+		31620D7C2109EEF600085F66 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 31620D7B2109EEF600085F66 /* LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		31620D652109ED7F00085F66 /* SwiftyFirebaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyFirebaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31620D6A2109ED7F00085F66 /* SwiftyFirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyFirebaseTests.swift; sourceTree = "<group>"; };
 		31620D6C2109ED7F00085F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31620D772109EE9C00085F66 /* JSONEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncoder.swift; sourceTree = "<group>"; };
+		31620D792109EEA200085F66 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
+		31620D7B2109EEF600085F66 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 		31620D5E2109ED7F00085F66 /* SwiftyFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				31620D762109EDEA00085F66 /* Foundation */,
 				31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */,
 				31620D602109ED7F00085F66 /* Info.plist */,
 			);
@@ -84,6 +91,16 @@
 				31620D6C2109ED7F00085F66 /* Info.plist */,
 			);
 			path = SwiftyFirebaseTests;
+			sourceTree = "<group>";
+		};
+		31620D762109EDEA00085F66 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				31620D7B2109EEF600085F66 /* LICENSE.txt */,
+				31620D792109EEA200085F66 /* Codable.swift */,
+				31620D772109EE9C00085F66 /* JSONEncoder.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +165,7 @@
 				TargetAttributes = {
 					31620D5B2109ED7F00085F66 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					31620D642109ED7F00085F66 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -177,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31620D7C2109EEF600085F66 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31620D7A2109EEA200085F66 /* Codable.swift in Sources */,
+				31620D782109EE9C00085F66 /* JSONEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +360,7 @@
 		31620D712109ED7F00085F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.ka-ching.SwiftyFirebase";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +388,7 @@
 		31620D722109ED7F00085F66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +415,7 @@
 		31620D742109ED7F00085F66 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FUWNN36Z78;
 				INFOPLIST_FILE = SwiftyFirebaseTests/Info.plist;
@@ -409,6 +434,7 @@
 		31620D752109ED7F00085F66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FUWNN36Z78;
 				INFOPLIST_FILE = SwiftyFirebaseTests/Info.plist;
