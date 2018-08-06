@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		315E76B021177E88003DAE33 /* GeneratePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315E76AE21171632003DAE33 /* GeneratePaths.swift */; };
 		31620D662109ED7F00085F66 /* SwiftyFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D5C2109ED7F00085F66 /* SwiftyFirebase.framework */; };
 		31620D6B2109ED7F00085F66 /* SwiftyFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D6A2109ED7F00085F66 /* SwiftyFirebaseTests.swift */; };
 		31620D6D2109ED7F00085F66 /* SwiftyFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,6 +25,9 @@
 		31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; };
 		31620D922109F09700085F66 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; };
 		31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; };
+		31ED48B7210DDAAF00358C11 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48B6210DDAAF00358C11 /* Paths.swift */; };
+		31ED48B9210DDBAB00358C11 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48B8210DDBAB00358C11 /* FirebaseService.swift */; };
+		31ED48BB210DDCEF00358C11 /* SamplePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48BA210DDCEF00358C11 /* SamplePaths.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		315E76AE21171632003DAE33 /* GeneratePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePaths.swift; sourceTree = "<group>"; };
 		31620D5C2109ED7F00085F66 /* SwiftyFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyFirebase.h; sourceTree = "<group>"; };
 		31620D602109ED7F00085F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +62,9 @@
 		31620D872109F09700085F66 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Carthage/Build/iOS/leveldb-library.framework"; sourceTree = "<group>"; };
 		31620D882109F09700085F66 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		31620D892109F09700085F66 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		31ED48B6210DDAAF00358C11 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
+		31ED48B8210DDBAB00358C11 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		31ED48BA210DDCEF00358C11 /* SamplePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePaths.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 		31620D522109ED7F00085F66 = {
 			isa = PBXGroup;
 			children = (
+				315E76AE21171632003DAE33 /* GeneratePaths.swift */,
 				31620D5E2109ED7F00085F66 /* SwiftyFirebase */,
 				31620D692109ED7F00085F66 /* SwiftyFirebaseTests */,
 				31620D5D2109ED7F00085F66 /* Products */,
@@ -114,6 +123,9 @@
 				31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */,
 				31620D602109ED7F00085F66 /* Info.plist */,
 				31620D7D2109F05700085F66 /* FirebaseExtensions.swift */,
+				31ED48B6210DDAAF00358C11 /* Paths.swift */,
+				31ED48B8210DDBAB00358C11 /* FirebaseService.swift */,
+				31ED48BA210DDCEF00358C11 /* SamplePaths.swift */,
 			);
 			path = SwiftyFirebase;
 			sourceTree = "<group>";
@@ -265,7 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				31620D7A2109EEA200085F66 /* Codable.swift in Sources */,
+				31ED48B9210DDBAB00358C11 /* FirebaseService.swift in Sources */,
+				31ED48BB210DDCEF00358C11 /* SamplePaths.swift in Sources */,
 				31620D7E2109F05700085F66 /* FirebaseExtensions.swift in Sources */,
+				315E76B021177E88003DAE33 /* GeneratePaths.swift in Sources */,
+				31ED48B7210DDAAF00358C11 /* Paths.swift in Sources */,
 				31620D782109EE9C00085F66 /* StructureEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
