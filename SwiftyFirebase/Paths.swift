@@ -7,81 +7,105 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 // So from the Objc.io talk, we learn about a way of representing filesystem paths that can point to either files or directories.
 // Internally, these are represented as an array of path elements. Let's do that too:
 public struct Path<Element> {
+    public struct Collection {
+        private var components: [String]
+
+        public func child(_ key: String) -> Path<Element> {
+            return append(key)
+        }
+
+        fileprivate func append<T>(_ args: String ...) -> Path<T> {
+            return Path<T>(components + args)
+        }
+
+        fileprivate init(_ components: [String]) {
+            self.components = components
+        }
+
+        public var rendered: String {
+            return components.joined(separator: "/")
+        }
+    }
 
     private var components: [String]
 
-    func append<T>(_ args: String ...) -> Path<T> {
+    fileprivate func append<T>(_ args: String ...) -> Path<T> {
         return Path<T>(components + args)
     }
 
-    func append<T>(_ args: String ...) -> CollectionPath<T> {
-        return CollectionPath<T>(components + args)
+    fileprivate func append<T>(_ args: String ...) -> Path<T>.Collection {
+        return Path<T>.Collection(components + args)
     }
 
-//    func append<T>(_ arg: String) -> Path<T> {
-//        return append([arg])
-//    }
-
-    init(_ components: [String]) {
+    fileprivate init(_ components: [String]) {
         self.components = components
     }
 
-    var rendered: String {
+    public var rendered: String {
         return components.joined(separator: "/")
     }
 }
 
-// So the path is generic over the 'Element' which is where we use both Phantom types AND actual model types.
-// For now we cannot construct a Path outside of the scope of this file.
 
-public struct CollectionPath<Element> {
-    private var components: [String]
+// MARK: Modelling the actual Firebase RTDB hierarchy
 
-    public func child(_ key: String) -> Path<Element> {
-        return append([key])
-    }
+enum Root {}
+enum ChatRoom {}
 
-    func append<T>(_ args: [String]) -> Path<T> {
-        return Path<T>(components + args)
-    }
-
-    func append<T>(_ arg: String) -> Path<T> {
-        return append([arg])
-    }
-
-    init(_ components: [String]) {
-        self.components = components
-    }
-
-    var rendered: String {
-        return components.joined(separator: "/")
+struct Message: Codable {
+    var header: String
+    var body: String
+    init(header: String, body: String) {
+        self.header = header
+        self.body = body
     }
 }
 
-//// Now, we cannot extend the Path type to be constrained to a generic type, so we need to wrap it in a protocol.
-//// You need to ask smarter people to me as to why this can't be represented. I don't know if it's a limitation in Swift, or if there is some logical existential reason why this can't be done. But let's add a protocol so that we _can_ represent it in Swift:
-//public protocol CollectionPathProtocol {
-//    associatedtype ElementType
-//}
-//
-//// Our CollectionPath generic type can now be made to conform to this protocol:
-//extension CollectionPath: CollectionPathProtocol {
-//    public typealias ElementType = Element
-//}
+struct Configuration: Codable {
+    // Our actual Configuration entity
+    var welcomeMessage: String
+    init(welcomeMessage: String) {
+        self.welcomeMessage = welcomeMessage
+    }
+}
 
-//extension CollectionPath {
-//    public func child(_ key: String) -> Path<Element> {
-//        return append([key])
-//    }
-//}
+extension Path where Element == Root {
+    init() {
+        self.init([])
+    }
+}
 
-//// And finally we can model collection/child relationships on the Path
-//extension Path where Element: CollectionPathProtocol {
-//    public func child(_ key: String) -> Path<Element.ElementType> {
-//        return append(key)
-//    }
-//}
+extension Path where Element == Root {
+    var chatrooms: Path<ChatRoom>.Collection {
+        return append("chatrooms")
+    }
+
+    // Convenience
+    func chatroom(_ key: String) -> Path<ChatRoom> {
+        return chatrooms.child(key)
+    }
+
+    var configuration: Path<Configuration> {
+        return append("configuration")
+    }
+}
+
+extension Path where Element == ChatRoom {
+    var name: Path<String> {
+        return append("name")
+    }
+    
+    var messages: Path<Message>.Collection {
+        return append("messages")
+    }
+
+    // Convenience
+    func message(_ key: String) -> Path<Message> {
+        return messages.child(key)
+    }
+}
