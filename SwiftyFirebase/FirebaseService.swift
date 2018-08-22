@@ -8,6 +8,8 @@
 
 import FirebaseDatabase
 import Foundation
+import Result
+import RxSwift
 
 // A small wrapper so that we prevent the user from calling collection observation with .value
 public enum CollectionEventType {
@@ -31,37 +33,31 @@ public class FirebaseService {
     }
 
     // MARK: Observing Paths
-    func observeSingleEvent<T>(at path: Path<T>,
-                               with block: @escaping (DecodeResult<T>) -> Void)
+    func observeSingleEvent<T>(at path: Path<T>) -> Single<T>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
-            
-            ref.observeSingleEvent(of: .value, with: block)
+            return ref.rx.observeSingleEvent(of: .value)
     }
 
-    func observe<T>(at path: Path<T>,
-                    with block:  @escaping (DecodeResult<T>) -> Void) -> UInt
+    func observe<T>(at path: Path<T>) -> Observable<DecodeResult<T>>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
-            return ref.observe(eventType: .value, with: block)
+            return ref.rx.observe(eventType: .value)
     }
 
     // MARK: Observing Collection Paths
     func observeSingleEvent<T>(of type: CollectionEventType,
-                               at path: Path<T>,
-                               with block: @escaping (DecodeResult<T>) -> Void)
+                               at path: Path<T>) -> Single<T>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
-
-            ref.observeSingleEvent(of: type.firebaseEventType, with: block)
+            return ref.rx.observeSingleEvent(of: type.firebaseEventType)
     }
 
     func observe<T>(eventType type: CollectionEventType,
-                    at path: Path<T>.Collection,
-                    with block:  @escaping (DecodeResult<T>) -> Void) -> UInt
+                    at path: Path<T>.Collection) -> Observable<DecodeResult<T>>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
-            return ref.observe(eventType: type.firebaseEventType, with: block)
+            return ref.rx.observe(eventType: type.firebaseEventType)
     }
 
     // MARK: Adding and Setting
@@ -74,5 +70,33 @@ public class FirebaseService {
         let ref = rootRef.child(path.rendered)
         let childRef = ref.childByAutoId()
         try childRef.setValue(value)
+    }
+}
+
+protocol ResultProtocol {
+    associatedtype WrappedType
+    associatedtype ErrorType
+    var value: WrappedType? { get }
+    var error: ErrorType? { get }
+}
+
+extension Result: ResultProtocol {
+    typealias WrappedType = Value
+    typealias ErrorType = Error
+}
+
+extension Observable where Element: ResultProtocol {
+    func filtered() -> Observable<Element.WrappedType> {
+        return self.filter { $0.value != nil }.map { $0.value! }
+    }
+
+    func filtered(handler: @escaping (Element.ErrorType) -> Void) -> Observable<Element.WrappedType> {
+        return self
+            .do(onNext: { result in
+                guard let error = result.error else { return }
+                handler(error)
+            })
+            .filter { $0.value != nil }
+            .map { $0.value! }
     }
 }

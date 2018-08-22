@@ -8,27 +8,43 @@
 
 import FirebaseDatabase
 import Foundation
+import RxSwift
 
-func example() throws {
-    var ref: DatabaseReference! // Just showing the API, we do not have an actual initialized Firebase project
-    let s = FirebaseService(ref: ref)
+protocol ViewModelInputs {
+    func add(message: Message)
+    func update(configuration: Configuration)
+}
 
-    let firechatPath = Path().chatroom("firechat")
+protocol ViewModelOutputs {
+    var newMessages: Observable<Message> { get }
+    var configuration: Observable<Configuration> { get }
+}
 
-    let config = Configuration(welcomeMessage: "Hello, World!")
-    try s.setValue(at: Path().configuration, value: config)
+protocol ViewModelType {
+    var inputs: ViewModelInputs { get }
+    var outputs: ViewModelOutputs { get }
+}
 
-    _ = s.observe(eventType: .childAdded, at: firechatPath.messages) { result in
-        guard let message = result.value else { return }
-        print("New message received:", message)
+class ViewModel: ViewModelType, ViewModelOutputs, ViewModelInputs {
+    var inputs: ViewModelInputs { return self }
+    var outputs: ViewModelOutputs { return self }
+
+    private let configurationPath = Path().configuration
+    private let firechatPath = Path().chatroom("firechat").messages
+
+    lazy var newMessages: Observable<Message> = s.observe(eventType: .childAdded, at: firechatPath).filtered()
+    lazy var configuration: Observable<Configuration> = s.observe(at: configurationPath).filtered()
+
+    func add(message: Message) {
+        try? s.addValue(at: firechatPath, value: message)
     }
 
-    _ = s.observe(at: Path().configuration, with: { result in
-        guard let config = result.value else { return }
-        print("Configuration changed:", config)
-    })
+    func update(configuration: Configuration) {
+        try? s.setValue(at: configurationPath, value: configuration)
+    }
 
-    let message = Message(header: "Firebase", body: "Firebase is awesome!")
-    try s.addValue(at: firechatPath.messages, value: message)
-
+    private let s: FirebaseService
+    init(service: FirebaseService) {
+        self.s = service
+    }
 }

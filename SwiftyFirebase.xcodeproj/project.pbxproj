@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310A6C63212C41F900FDD478 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310A6C62212C41F900FDD478 /* RxSwift.framework */; };
 		31620D662109ED7F00085F66 /* SwiftyFirebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D5C2109ED7F00085F66 /* SwiftyFirebase.framework */; };
 		31620D6B2109ED7F00085F66 /* SwiftyFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D6A2109ED7F00085F66 /* SwiftyFirebaseTests.swift */; };
 		31620D6D2109ED7F00085F66 /* SwiftyFirebase.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310A6C62212C41F900FDD478 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		31620D5C2109ED7F00085F66 /* SwiftyFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyFirebase.h; sourceTree = "<group>"; };
 		31620D602109ED7F00085F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310A6C63212C41F900FDD478 /* RxSwift.framework in Frameworks */,
 				31620D8A2109F09700085F66 /* FirebaseInstanceID.framework in Frameworks */,
 				31620D8B2109F09700085F66 /* FirebaseAnalytics.framework in Frameworks */,
 				31620D8C2109F09700085F66 /* nanopb.framework in Frameworks */,
@@ -149,6 +152,7 @@
 		31620D7F2109F09600085F66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				310A6C62212C41F900FDD478 /* RxSwift.framework */,
 				31620D812109F09700085F66 /* FirebaseAnalytics.framework */,
 				31620D862109F09700085F66 /* FirebaseCore.framework */,
 				31620D832109F09700085F66 /* FirebaseCoreDiagnostics.framework */,
