@@ -9,6 +9,59 @@
 import FirebaseDatabase
 import Foundation
 
+// MARK: Modelling the actual Firebase RTDB hierarchy
+
+struct Message: Codable {
+    var header: String
+    var body: String
+    init(header: String, body: String) {
+        self.header = header
+        self.body = body
+    }
+}
+
+struct Configuration: Codable {
+    // Our actual Configuration entity
+    var welcomeMessage: String
+    init(welcomeMessage: String) {
+        self.welcomeMessage = welcomeMessage
+    }
+}
+
+enum Chatroom {}
+
+extension Path where Element == Root {
+    var chatrooms: Path<Chatroom>.Collection {
+        return Path.append(self, "chatrooms")
+    }
+
+    // Convenience
+    func chatroom(_ key: String) -> Path<Chatroom> {
+        return chatrooms.child(key)
+    }
+
+    var configuration: Path<Configuration> {
+        return Path.append(self, "configuration")
+    }
+
+}
+
+extension Path where Element == Chatroom {
+    var messages: Path<Message>.Collection {
+        return Path.append(self, "messages")
+    }
+
+    // Convenience
+    func message(_ key: String) -> Path<Message> {
+        return messages.child(key)
+    }
+
+    var name: Path<String> {
+        return Path.append(self, "name")
+    }
+
+}
+
 func example() throws {
     var ref: DatabaseReference! // Just showing the API, we do not have an actual initialized Firebase project
     let s = FirebaseService(ref: ref)

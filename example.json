@@ -1,0 +1,11 @@
+{
+  "configuration": "Configuration",
+  "chatrooms" : {
+    "<chatroomId>": {
+      "messages": {
+        "<messageId>": "Message"
+      },
+      "name": "String"
+    }
+  }
+}
