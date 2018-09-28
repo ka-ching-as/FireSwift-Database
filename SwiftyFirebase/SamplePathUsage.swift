@@ -10,6 +10,25 @@ import FirebaseDatabase
 import Foundation
 import RxSwift
 
+// MARK: Modelling the actual Firebase RTDB hierarchy
+
+struct Message: Codable {
+    var header: String
+    var body: String
+    init(header: String, body: String) {
+        self.header = header
+        self.body = body
+    }
+}
+
+struct Configuration: Codable {
+    // Our actual Configuration entity
+    var welcomeMessage: String
+    init(welcomeMessage: String) {
+        self.welcomeMessage = welcomeMessage
+    }
+}
+
 protocol ViewModelInputs {
     func add(message: Message)
     func update(configuration: Configuration)
