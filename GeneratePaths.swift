@@ -64,10 +64,6 @@ func singular(_ name: String) -> String {
     return name
 }
 
-func phantomTypeName(for name: String) -> String {
-    return singular(name).capitalized
-}
-
 struct Tree: Decodable {
     enum TreeType {
         case concreteType
@@ -140,19 +136,6 @@ struct Tree: Decodable {
         return ext + members + extClose
     }
 
-    func asCollection() -> Tree {
-        return Tree(typeName: typeName, isCollection: true, type: type)
-    }
-
-    func withPhantomName(for path: String) -> Tree {
-        switch type {
-        case .concreteType:
-            return self
-        case .phantomType:
-            return Tree(typeName: phantomTypeName(for: path), isCollection: true, type: type)
-        }
-    }
-
     init(from decoder: Decoder) throws {
         do {
             let container = try decoder.singleValueContainer()
@@ -161,19 +144,21 @@ struct Tree: Decodable {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             var childNodes: [String: Tree] = [:]
             for key in container.allKeys {
-
-                let value = try container.decode(Tree.self, forKey: key)
-                let isCollection = (key.stringValue.starts(with: "<") && key.stringValue.reversed().starts(with: ">"))
-                if isCollection {
-                    self = value.asCollection()
+                var value = try container.decode(Tree.self, forKey: key)
+                value.isCollection = (key.stringValue.starts(with: "<") && key.stringValue.reversed().starts(with: ">"))
+                if value.isCollection {
+                    self = value
                     return
                 }
-                childNodes[key.stringValue] = value.withPhantomName(for: key.stringValue)
+                // Phantom types are born without a type name. Use their key in singular form as their name
+                if case .phantomType = value.type {
+                    value.typeName = singular(key.stringValue).capitalized
+                }
+                childNodes[key.stringValue] = value
             }
             self.init(typeName: "", isCollection: false, type: .phantomType(childNodes: childNodes))
         }
     }
-
 }
 
 func flatten(tree: Tree) -> [Tree] {
@@ -208,10 +193,11 @@ func run() {
         return
     }
     let decoder = JSONDecoder()
-    guard let tree = try? decoder.decode(Tree.self, from: data).withPhantomName(for: "Root") else {
+    guard var tree = try? decoder.decode(Tree.self, from: data) else {
         print("Could not parse file as json: \(filename)")
         return
     }
+    tree.typeName = "Root"
 
     let phantoms = flatten(tree: tree)
 
