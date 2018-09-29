@@ -21,11 +21,11 @@ public struct Path<Element> {
         return components.joined(separator: "/")
     }
 
-    static func append<T>(_ p: Path, _ args: String ...) -> Path<T> {
+    public static func append<T>(_ p: Path, _ args: String ...) -> Path<T> {
         return Path<T>(p.components + args)
     }
 
-    static func append<T>(_ p: Path, _ args: String ...) -> Path<T>.Collection {
+    public static func append<T>(_ p: Path, _ args: String ...) -> Path<T>.Collection {
         return Path<T>.Collection(p.components + args)
     }
 
