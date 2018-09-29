@@ -108,7 +108,6 @@ struct Tree: Decodable {
             }
         """)
 
-        print("outputmemb", name, isCollection)
         if isCollection {
             result.append("""
                 // Convenience
