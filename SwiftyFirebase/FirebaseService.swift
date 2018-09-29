@@ -73,7 +73,7 @@ public class FirebaseService {
     }
 }
 
-protocol ResultProtocol {
+public protocol ResultProtocol {
     associatedtype WrappedType
     associatedtype ErrorType
     var value: WrappedType? { get }
@@ -81,16 +81,16 @@ protocol ResultProtocol {
 }
 
 extension Result: ResultProtocol {
-    typealias WrappedType = Value
-    typealias ErrorType = Error
+    public typealias WrappedType = Value
+    public typealias ErrorType = Error
 }
 
 extension Observable where Element: ResultProtocol {
-    func filtered() -> Observable<Element.WrappedType> {
+    public func successes() -> Observable<Element.WrappedType> {
         return self.filter { $0.value != nil }.map { $0.value! }
     }
 
-    func filtered(handler: @escaping (Element.ErrorType) -> Void) -> Observable<Element.WrappedType> {
+    public func successes(handlingErrors handler: @escaping (Element.ErrorType) -> Void) -> Observable<Element.WrappedType> {
         return self
             .do(onNext: { result in
                 guard let error = result.error else { return }
