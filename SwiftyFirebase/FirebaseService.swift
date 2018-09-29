@@ -33,27 +33,27 @@ public class FirebaseService {
     }
 
     // MARK: Observing Paths
-    func observeSingleEvent<T>(at path: Path<T>) -> Single<T>
+    public func observeSingleEvent<T>(at path: Path<T>) -> Single<T>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
             return ref.rx.observeSingleEvent(of: .value)
     }
 
-    func observe<T>(at path: Path<T>) -> Observable<DecodeResult<T>>
+    public func observe<T>(at path: Path<T>) -> Observable<DecodeResult<T>>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
             return ref.rx.observe(eventType: .value)
     }
 
     // MARK: Observing Collection Paths
-    func observeSingleEvent<T>(of type: CollectionEventType,
+    public func observeSingleEvent<T>(of type: CollectionEventType,
                                at path: Path<T>) -> Single<T>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
             return ref.rx.observeSingleEvent(of: type.firebaseEventType)
     }
 
-    func observe<T>(eventType type: CollectionEventType,
+    public func observe<T>(eventType type: CollectionEventType,
                     at path: Path<T>.Collection) -> Observable<DecodeResult<T>>
         where T: Decodable {
             let ref = rootRef.child(path.rendered)
@@ -61,12 +61,12 @@ public class FirebaseService {
     }
 
     // MARK: Adding and Setting
-    func setValue<T>(at path: Path<T>, value: T) throws where T: Encodable {
+    public func setValue<T>(at path: Path<T>, value: T) throws where T: Encodable {
         let ref = rootRef.child(path.rendered)
         try ref.setValue(value)
     }
 
-    func addValue<T>(at path: Path<T>.Collection, value: T) throws where T: Encodable {
+    public func addValue<T>(at path: Path<T>.Collection, value: T) throws where T: Encodable {
         let ref = rootRef.child(path.rendered)
         let childRef = ref.childByAutoId()
         try childRef.setValue(value)
