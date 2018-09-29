@@ -25,11 +25,8 @@
 		31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; };
 		31620D922109F09700085F66 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; };
 		31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; };
-		3198CE99215ECB6600640052 /* TypesafePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3198CE98215ECB6600640052 /* TypesafePaths.swift */; };
-		3198CE9B215ECD6000640052 /* GeneratePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3198CE9A215ECD6000640052 /* GeneratePaths.swift */; };
 		31ED48B7210DDAAF00358C11 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48B6210DDAAF00358C11 /* Paths.swift */; };
 		31ED48B9210DDBAB00358C11 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48B8210DDBAB00358C11 /* FirebaseService.swift */; };
-		31ED48BB210DDCEF00358C11 /* SamplePathUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48BA210DDCEF00358C11 /* SamplePathUsage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,11 +311,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				31620D7A2109EEA200085F66 /* Codable.swift in Sources */,
-				3198CE9B215ECD6000640052 /* GeneratePaths.swift in Sources */,
 				31ED48B9210DDBAB00358C11 /* FirebaseService.swift in Sources */,
-				31ED48BB210DDCEF00358C11 /* SamplePathUsage.swift in Sources */,
 				31620D7E2109F05700085F66 /* FirebaseExtensions.swift in Sources */,
-				3198CE99215ECB6600640052 /* TypesafePaths.swift in Sources */,
 				31ED48B7210DDAAF00358C11 /* Paths.swift in Sources */,
 				31620D782109EE9C00085F66 /* StructureEncoder.swift in Sources */,
 			);
