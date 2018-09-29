@@ -108,6 +108,7 @@ struct Tree: Decodable {
             }
         """)
 
+        print("outputmemb", name, isCollection)
         if isCollection {
             result.append("""
                 // Convenience
@@ -145,8 +146,9 @@ struct Tree: Decodable {
             var childNodes: [String: Tree] = [:]
             for key in container.allKeys {
                 var value = try container.decode(Tree.self, forKey: key)
-                value.isCollection = (key.stringValue.starts(with: "<") && key.stringValue.reversed().starts(with: ">"))
-                if value.isCollection {
+                let isCollection = (key.stringValue.starts(with: "<") && key.stringValue.reversed().starts(with: ">"))
+                if isCollection {
+                    value.isCollection = true
                     self = value
                     return
                 }
