@@ -1,0 +1,6 @@
+# Third party frameworks
+github "antitypical/Result"
+github "ReactiveX/RxSwift" ~> 4.0
+
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAnalyticsBinary.json" == 5.4.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" == 5.4.0
