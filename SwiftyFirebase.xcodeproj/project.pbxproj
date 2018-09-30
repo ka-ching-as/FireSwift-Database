@@ -25,6 +25,7 @@
 		31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; };
 		31620D922109F09700085F66 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; };
 		31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; };
+		3198CEE52160ECFA00640052 /* FirebaseRxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3198CEE42160ECFA00640052 /* FirebaseRxExtensions.swift */; };
 		31ED48B7210DDAAF00358C11 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48B6210DDAAF00358C11 /* Paths.swift */; };
 		31ED48B9210DDBAB00358C11 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ED48B8210DDBAB00358C11 /* FirebaseService.swift */; };
 /* End PBXBuildFile section */
@@ -61,11 +62,10 @@
 		31620D872109F09700085F66 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Carthage/Build/iOS/leveldb-library.framework"; sourceTree = "<group>"; };
 		31620D882109F09700085F66 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		31620D892109F09700085F66 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
-		3198CE98215ECB6600640052 /* TypesafePaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesafePaths.swift; sourceTree = "<group>"; };
 		3198CE9A215ECD6000640052 /* GeneratePaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratePaths.swift; sourceTree = "<group>"; };
+		3198CEE42160ECFA00640052 /* FirebaseRxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRxExtensions.swift; sourceTree = "<group>"; };
 		31ED48B6210DDAAF00358C11 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		31ED48B8210DDBAB00358C11 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
-		31ED48BA210DDCEF00358C11 /* SamplePathUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePathUsage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,14 +121,13 @@
 		31620D5E2109ED7F00085F66 /* SwiftyFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				3198CE96215EC92A00640052 /* Generated */,
 				31620D762109EDEA00085F66 /* Foundation */,
 				31620D5F2109ED7F00085F66 /* SwiftyFirebase.h */,
 				31620D602109ED7F00085F66 /* Info.plist */,
 				31620D7D2109F05700085F66 /* FirebaseExtensions.swift */,
 				31ED48B6210DDAAF00358C11 /* Paths.swift */,
+				3198CEE42160ECFA00640052 /* FirebaseRxExtensions.swift */,
 				31ED48B8210DDBAB00358C11 /* FirebaseService.swift */,
-				31ED48BA210DDCEF00358C11 /* SamplePathUsage.swift */,
 			);
 			path = SwiftyFirebase;
 			sourceTree = "<group>";
@@ -168,14 +167,6 @@
 				31620D882109F09700085F66 /* Result.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3198CE96215EC92A00640052 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				3198CE98215ECB6600640052 /* TypesafePaths.swift */,
-			);
-			path = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +303,7 @@
 			files = (
 				31620D7A2109EEA200085F66 /* Codable.swift in Sources */,
 				31ED48B9210DDBAB00358C11 /* FirebaseService.swift in Sources */,
+				3198CEE52160ECFA00640052 /* FirebaseRxExtensions.swift in Sources */,
 				31620D7E2109F05700085F66 /* FirebaseExtensions.swift in Sources */,
 				31ED48B7210DDAAF00358C11 /* Paths.swift in Sources */,
 				31620D782109EE9C00085F66 /* StructureEncoder.swift in Sources */,

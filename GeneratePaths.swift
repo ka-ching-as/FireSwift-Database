@@ -11,6 +11,8 @@
 import Foundation
 
 // From JSONEncoder.swift in the github.com/apple/swift repo
+// For licensing details of the swift project, see the LICENSE.txt included in
+// the Foundation directory of this repo.
 fileprivate func _convertFromSnakeCase(_ stringKey: String) -> String {
     guard !stringKey.isEmpty else { return stringKey }
 
