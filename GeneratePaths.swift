@@ -206,7 +206,7 @@ func run() {
 
     let enums = phantoms.compactMap { $0.outputEnum() }
     let extensions = phantoms.compactMap { $0.outputExtension() }
-    print("import SwiftyFirebase\n")
+    print("import FireSwift-Database\n")
     print(enums.joined(separator: "\n"))
     print("")
     print(extensions.joined(separator: "\n"))
