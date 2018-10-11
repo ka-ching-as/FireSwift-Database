@@ -10,6 +10,21 @@ import Foundation
 import FirebaseDatabase
 import Result
 
+// A small wrapper so that we prevent the user from calling collection observation with .value
+public enum CollectionEventType {
+    case childAdded, childChanged, childRemoved
+    var firebaseEventType: DataEventType {
+        switch self {
+        case .childAdded:
+            return .childAdded
+        case .childChanged:
+            return .childChanged
+        case .childRemoved:
+            return .childRemoved
+        }
+    }
+}
+
 public typealias DecodeResult<T> = Result<T, DecodeError>
 
 public enum DecodeError: Error {
@@ -46,7 +61,7 @@ public extension DatabaseQuery {
 
     func observe<T>(eventType: DataEventType,
                     using decoder: StructureDecoder = .init(),
-                    with block:  @escaping (DecodeResult<T>) -> Void) -> UInt
+                    with block: @escaping (DecodeResult<T>) -> Void) -> UInt
         where T: Decodable {
             let decoder = StructureDecoder()
             return observe(eventType, with: { snap in
@@ -64,6 +79,56 @@ public extension DatabaseReference {
 }
 
 public extension Database {
+
+    func observeSingleEvent<T>(at path: Path<T>,
+                               using decoder: StructureDecoder = .init(),
+                               with block: @escaping (DecodeResult<T>) -> Void)
+        where T: Decodable {
+            return self[path].observeSingleEvent(of: .value,
+                                                 using: decoder,
+                                                 with: block)
+    }
+
+    func observe<T>(at path: Path<T>,
+                    using decoder: StructureDecoder = .init(),
+                    with block: @escaping (DecodeResult<T>) -> Void) -> UInt
+        where T: Decodable {
+            return self[path].observe(eventType: .value,
+                                      using: decoder,
+                                      with: block)
+    }
+
+    // MARK: Observing Collection Paths
+    public func observeSingleEvent<T>(of type: CollectionEventType,
+                                      at path: Path<T>.Collection,
+                                      using decoder: StructureDecoder = .init(),
+                                      with block: @escaping (DecodeResult<T>) -> Void)
+        where T: Decodable {
+            return self[path].observeSingleEvent(of: type.firebaseEventType,
+                                                 using: decoder,
+                                                 with: block)
+    }
+
+    public func observe<T>(eventType type: CollectionEventType,
+                           at path: Path<T>.Collection,
+                           using decoder: StructureDecoder = .init(),
+                           with block: @escaping (DecodeResult<T>) -> Void) -> UInt
+        where T: Decodable {
+            return self[path].observe(eventType: type.firebaseEventType,
+                                      using: decoder,
+                                      with: block)
+    }
+
+    // MARK: Adding and Setting
+    public func setValue<T>(at path: Path<T>, value: T, using encoder: StructureEncoder = .init()) throws where T: Encodable {
+        try self[path].setValue(value, using: encoder)
+    }
+
+    public func addValue<T>(at path: Path<T>.Collection, value: T, using encoder: StructureEncoder = .init()) throws where T: Encodable {
+        let childRef = self[path].childByAutoId()
+        try childRef.setValue(value, using: encoder)
+    }
+
     subscript<T>(path: Path<T>) -> DatabaseReference {
         return reference().child(path.rendered)
     }
