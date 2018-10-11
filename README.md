@@ -39,14 +39,17 @@ ref.setValue(configuration)
 ```
 
 This abstraction is already pretty powerful, but we can do even better.
-The library contains a generic `Path` abstraction that can be used to model a type-safe alternative to the stringly-typed paths used to build Firebase `Reference`s. And even further you can use the generic type parameter of the `Path` to 'bind' to the type of the `Codable` parameters.
+
+The library contains a generic `Path` abstraction that can be used to model a type-safe alternative to the stringly-typed paths used to build Firebase `Reference`s. 
+
+And even further you can use the generic type parameter of the `Path` to 'bind' to the type of the `Codable` parameters.
 
 The examples above can be improved by defining a 'schema' for your firebase structure as follows:
 ```
 // Define the schema of your firebase structure:
 extension Path where Element == Root {
     var configuration: Path<Configuration> {
-        return Path.append(self, "configuratino")
+        return Path.append(self, "configuration")
     }
 }
 ```
@@ -94,6 +97,8 @@ let handle = database.observe(eventType: .childAdded, at: usersPath) { result in
     }}
 ```
 
+Collection paths have a `child(_ key: String)` method that returns a path to an element of the collection type.
+
 If you enjoy these concepts, I can recommend looking into `RxSwift` for which I have also created the `RxFireSwift-Database` framework. This unlocks even cooler abstractions. :-)
 
 
@@ -114,6 +119,74 @@ $ carthage update
 ```
 
 ### Automatic code generation
+
+The repo contains a small, experimental Swift-script for generating the `Path` schema definitions from a json-file defining the schema.
+
+Consider the following example schema:
+```
+{
+  "configuration": "Configuration",
+  "chatrooms" : {
+    "<chatroomId>": {
+      "messages": {
+        "<messageId>": "Message"
+      },
+      "name": "String"
+    }
+  }
+}
+```
+
+This will define `Paths` from the root of the structure and down to the leaf nodes which must correspond to names of model types in your code.
+
+A json key that is wrapped in angle bracket means that the data at this point in the tree is part of a collection.
+
+As you will notice, there is no entity defining a chatroom. For the sake of the above schema there is no model type corresponding to a chatroom, but rather you need to create a path to a chatroom in order to get to the messages of the chatroom.
+
+This concept is modelled using phantom types. The code generator will generate an enum named `Chatroom` with no values. This means that the `Chatroom` can never be instantiated, but it can still be used as a generic restriction in our code.
+
+With the code generated from the schema above, you can generate paths like:
+```
+let firechatMessagePath = Path().chatrooms.child("firechat").messages
+```
+The type of the `firechatMessagePath` variable is `Path<Message>.Collection`. In other words, a path to a collection of messages.
+
+The full code generated from the above json is provided here as an example:
+```
+import FireSwift_Database
+
+enum Chatroom {}
+
+extension Path where Element == Root {
+    var configuration: Path<Configuration> {
+        return Path.append(self, "configuration")
+    }
+
+    var chatrooms: Path<Chatroom>.Collection {
+        return Path.append(self, "chatrooms")
+    }
+
+    // Convenience
+    func chatroom(_ key: String) -> Path<Chatroom> {
+        return chatrooms.child(key)
+    }
+}
+
+extension Path where Element == Chatroom {
+    var messages: Path<Message>.Collection {
+        return Path.append(self, "messages")
+    }
+
+    // Convenience
+    func message(_ key: String) -> Path<Message> {
+        return messages.child(key)
+    }
+
+    var name: Path<String> {
+        return Path.append(self, "name")
+    }
+}
+```
 
 Add automatic `Path` code generation to an Xcode scheme. Just add a new "Run Script Phase" with something in the line of:
 
