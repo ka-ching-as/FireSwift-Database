@@ -206,8 +206,9 @@ If you add this phase before the `Compile Sources` step, you will always be usin
 
 ## TODO
 
-- [ ] A
-- [ ] B
+- [ ] Configure linting of the code
+- [ ] Inline documentation of the code
+- [ ] More helper functions like deleting data for a path
 
 ## License
 
