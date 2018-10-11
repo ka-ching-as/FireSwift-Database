@@ -19,11 +19,10 @@ public enum DecodeError: Error {
 }
 
 extension DataSnapshot {
-    func decoded<T>() -> DecodeResult<T> where T: Decodable {
+    func decoded<T>(using decoder: StructureDecoder = .init()) -> DecodeResult<T> where T: Decodable {
         guard exists(), let value = value else {
             return Result.failure(DecodeError.noValuePresent)
         }
-        let decoder = StructureDecoder()
         do {
             let d = try decoder.decode(T.self, from: value)
             return Result.success(d)
@@ -35,20 +34,23 @@ extension DataSnapshot {
 
 public extension DatabaseQuery {
     func observeSingleEvent<T>(of type: DataEventType,
+                               using decoder: StructureDecoder = .init(),
                                with block: @escaping (DecodeResult<T>) -> Void)
         where T: Decodable {
             observeSingleEvent(of: type, with: { snap in
-                block(snap.decoded())
+                block(snap.decoded(using: decoder))
             }, withCancel: { error in
                 block(.failure(.internalError(error)))
             })
     }
 
     func observe<T>(eventType: DataEventType,
+                    using decoder: StructureDecoder = .init(),
                     with block:  @escaping (DecodeResult<T>) -> Void) -> UInt
         where T: Decodable {
+            let decoder = StructureDecoder()
             return observe(eventType, with: { snap in
-                block(snap.decoded())
+                block(snap.decoded(using: decoder))
             }, withCancel: { error in
                 block(.failure(.internalError(error)))
             })
@@ -56,18 +58,17 @@ public extension DatabaseQuery {
 }
 
 public extension DatabaseReference {
-    func setValue<T>(_ value: T) throws where T: Encodable {
-        let encoder = StructureEncoder()
+    func setValue<T>(_ value: T, using encoder: StructureEncoder = .init()) throws where T: Encodable {
         self.setValue(try encoder.encode(value))
     }
 }
 
-public extension DatabaseReference {
+public extension Database {
     subscript<T>(path: Path<T>) -> DatabaseReference {
-        return child(path.rendered)
+        return reference().child(path.rendered)
     }
 
     subscript<T>(path: Path<T>.Collection) -> DatabaseReference {
-        return child(path.rendered)
+        return reference().child(path.rendered)
     }
 }
