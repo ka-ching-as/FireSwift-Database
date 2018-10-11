@@ -13,7 +13,7 @@ import Result
 // A small wrapper so that we prevent the user from calling collection observation with .value
 public enum CollectionEventType {
     case childAdded, childChanged, childRemoved
-    var firebaseEventType: DataEventType {
+    public var firebaseEventType: DataEventType {
         switch self {
         case .childAdded:
             return .childAdded
