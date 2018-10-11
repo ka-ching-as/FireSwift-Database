@@ -59,9 +59,7 @@
 		31620D882109F09700085F66 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		31620D892109F09700085F66 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
 		3198CE9A215ECD6000640052 /* GeneratePaths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratePaths.swift; sourceTree = "<group>"; };
-		3198CEE42160ECFA00640052 /* FirebaseRxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRxExtensions.swift; sourceTree = "<group>"; };
 		31ED48B6210DDAAF00358C11 /* Paths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
-		31ED48B8210DDBAB00358C11 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +119,6 @@
 				31620D602109ED7F00085F66 /* Info.plist */,
 				31620D7D2109F05700085F66 /* FirebaseExtensions.swift */,
 				31ED48B6210DDAAF00358C11 /* Paths.swift */,
-				3198CEE42160ECFA00640052 /* FirebaseRxExtensions.swift */,
-				31ED48B8210DDBAB00358C11 /* FirebaseService.swift */,
 			);
 			path = "FireSwift-Database";
 			sourceTree = "<group>";
