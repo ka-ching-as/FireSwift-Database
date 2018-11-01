@@ -7,6 +7,9 @@
 //
 
 import Foundation
+@_exported import FireSwift_DecodeResult
+@_exported import FireSwift_Paths
+import FireSwift_StructureCoding
 import FirebaseDatabase
 import Result
 
@@ -25,24 +28,16 @@ public enum CollectionEventType {
     }
 }
 
-public typealias DecodeResult<T> = Result<T, DecodeError>
-
-public enum DecodeError: Error {
-    case noValuePresent
-    case conversionError(Error)
-    case internalError(Error)
-}
-
 extension DataSnapshot {
     func decoded<T>(using decoder: StructureDecoder = .init()) -> DecodeResult<T> where T: Decodable {
         guard exists(), let value = value else {
-            return Result.failure(DecodeError.noValuePresent)
+            return .failure(.noValuePresent)
         }
         do {
             let d = try decoder.decode(T.self, from: value)
-            return Result.success(d)
+            return .success(d)
         } catch {
-            return Result.failure(DecodeError.conversionError(error))
+            return .failure(.conversionError(error))
         }
     }
 }
