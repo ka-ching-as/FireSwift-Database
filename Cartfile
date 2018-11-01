@@ -1,6 +1,4 @@
 # Third party frameworks
-github "antitypical/Result"
-github "ReactiveX/RxSwift" ~> 4.0
 git "../FireSwift-StructureCoding" "master"
 git "../FireSwift-DecodeResult" "master"
 git "../FireSwift-Paths" "master"

@@ -11,7 +11,6 @@ import Foundation
 @_exported import FireSwift_Paths
 import FireSwift_StructureCoding
 import FirebaseDatabase
-import Result
 
 // A small wrapper so that we prevent the user from calling collection observation with .value
 public enum CollectionEventType {
