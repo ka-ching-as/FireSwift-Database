@@ -3,4 +3,4 @@ git "../FireSwift-StructureCoding" "master"
 git "../FireSwift-DecodeResult" "master"
 git "../FireSwift-Paths" "master"
 
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" == 5.4.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" == 5.11.0

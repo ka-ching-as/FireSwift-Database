@@ -8,8 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		311A274B218B082900992BC3 /* FireSwift_StructureCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A274A218B082900992BC3 /* FireSwift_StructureCoding.framework */; };
-		311A274E218B0A6F00992BC3 /* FireSwift_Paths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A274C218B0A6F00992BC3 /* FireSwift_Paths.framework */; };
 		311A274F218B0A6F00992BC3 /* FireSwift_DecodeResult.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A274D218B0A6F00992BC3 /* FireSwift_DecodeResult.framework */; };
+		311A2798218B3B1900992BC3 /* FireSwift_Paths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A2797218B3B1900992BC3 /* FireSwift_Paths.framework */; };
+		311A2799218B3B7900992BC3 /* FireSwift_Paths.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A2797218B3B1900992BC3 /* FireSwift_Paths.framework */; };
+		311A279A218B3B7900992BC3 /* FireSwift_DecodeResult.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A274D218B0A6F00992BC3 /* FireSwift_DecodeResult.framework */; };
+		311A279B218B3B7900992BC3 /* FireSwift_StructureCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311A274A218B082900992BC3 /* FireSwift_StructureCoding.framework */; };
+		311A279C218B3B7900992BC3 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; };
+		311A279D218B3B7900992BC3 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; };
+		311A279E218B3B7900992BC3 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; };
+		311A27A0218B3B8D00992BC3 /* FireSwift_Paths.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 311A2797218B3B1900992BC3 /* FireSwift_Paths.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		311A27A1218B3B8D00992BC3 /* FireSwift_DecodeResult.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 311A274D218B0A6F00992BC3 /* FireSwift_DecodeResult.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		311A27A2218B3B8D00992BC3 /* FireSwift_StructureCoding.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 311A274A218B082900992BC3 /* FireSwift_StructureCoding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		311A27A3218B3B8D00992BC3 /* FirebaseDatabase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		311A27A4218B3B8D00992BC3 /* leveldb-library.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		311A27A5218B3B8D00992BC3 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31620D662109ED7F00085F66 /* FireSwift_Database.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D5C2109ED7F00085F66 /* FireSwift_Database.framework */; };
 		31620D6B2109ED7F00085F66 /* FireSwift-DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D6A2109ED7F00085F66 /* FireSwift-DatabaseTests.swift */; };
 		31620D6D2109ED7F00085F66 /* FireSwift-Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* FireSwift-Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,10 +41,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		311A279F218B3B8800992BC3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				311A27A0218B3B8D00992BC3 /* FireSwift_Paths.framework in CopyFiles */,
+				311A27A1218B3B8D00992BC3 /* FireSwift_DecodeResult.framework in CopyFiles */,
+				311A27A2218B3B8D00992BC3 /* FireSwift_StructureCoding.framework in CopyFiles */,
+				311A27A3218B3B8D00992BC3 /* FirebaseDatabase.framework in CopyFiles */,
+				311A27A4218B3B8D00992BC3 /* leveldb-library.framework in CopyFiles */,
+				311A27A5218B3B8D00992BC3 /* Result.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		311A274A218B082900992BC3 /* FireSwift_StructureCoding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FireSwift_StructureCoding.framework; path = Carthage/Build/iOS/FireSwift_StructureCoding.framework; sourceTree = "<group>"; };
-		311A274C218B0A6F00992BC3 /* FireSwift_Paths.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FireSwift_Paths.framework; path = Carthage/Build/iOS/Static/FireSwift_Paths.framework; sourceTree = "<group>"; };
 		311A274D218B0A6F00992BC3 /* FireSwift_DecodeResult.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FireSwift_DecodeResult.framework; path = Carthage/Build/iOS/FireSwift_DecodeResult.framework; sourceTree = "<group>"; };
+		311A2797218B3B1900992BC3 /* FireSwift_Paths.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FireSwift_Paths.framework; path = Carthage/Build/iOS/FireSwift_Paths.framework; sourceTree = "<group>"; };
 		31620D5C2109ED7F00085F66 /* FireSwift_Database.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FireSwift_Database.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31620D5F2109ED7F00085F66 /* FireSwift-Database.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireSwift-Database.h"; sourceTree = "<group>"; };
 		31620D602109ED7F00085F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,7 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				311A274E218B0A6F00992BC3 /* FireSwift_Paths.framework in Frameworks */,
+				311A2798218B3B1900992BC3 /* FireSwift_Paths.framework in Frameworks */,
 				311A274F218B0A6F00992BC3 /* FireSwift_DecodeResult.framework in Frameworks */,
 				311A274B218B082900992BC3 /* FireSwift_StructureCoding.framework in Frameworks */,
 				31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */,
@@ -64,6 +94,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				31620D662109ED7F00085F66 /* FireSwift_Database.framework in Frameworks */,
+				311A2799218B3B7900992BC3 /* FireSwift_Paths.framework in Frameworks */,
+				311A279A218B3B7900992BC3 /* FireSwift_DecodeResult.framework in Frameworks */,
+				311A279B218B3B7900992BC3 /* FireSwift_StructureCoding.framework in Frameworks */,
+				311A279C218B3B7900992BC3 /* FirebaseDatabase.framework in Frameworks */,
+				311A279D218B3B7900992BC3 /* leveldb-library.framework in Frameworks */,
+				311A279E218B3B7900992BC3 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +147,8 @@
 		31620D7F2109F09600085F66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				311A2797218B3B1900992BC3 /* FireSwift_Paths.framework */,
 				311A274D218B0A6F00992BC3 /* FireSwift_DecodeResult.framework */,
-				311A274C218B0A6F00992BC3 /* FireSwift_Paths.framework */,
 				311A274A218B082900992BC3 /* FireSwift_StructureCoding.framework */,
 				31620D892109F09700085F66 /* FirebaseDatabase.framework */,
 				31620D872109F09700085F66 /* leveldb-library.framework */,
@@ -160,6 +196,7 @@
 				31620D612109ED7F00085F66 /* Sources */,
 				31620D622109ED7F00085F66 /* Frameworks */,
 				31620D632109ED7F00085F66 /* Resources */,
+				311A279F218B3B8800992BC3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -388,7 +425,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/Static",
 				);
 				INFOPLIST_FILE = "FireSwift-Database/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -397,7 +433,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.ka-ching.FireSwift-Database";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -421,7 +457,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS/Static",
 				);
 				INFOPLIST_FILE = "FireSwift-Database/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -430,7 +465,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = "dk.ka-ching.FireSwift-Database";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -445,6 +480,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FUWNN36Z78;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "FireSwift-DatabaseTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +503,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FUWNN36Z78;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "FireSwift-DatabaseTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

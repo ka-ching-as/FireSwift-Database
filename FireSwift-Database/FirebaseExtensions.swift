@@ -57,7 +57,6 @@ public extension DatabaseQuery {
                     using decoder: StructureDecoder = .init(),
                     with block: @escaping (DecodeResult<T>) -> Void) -> UInt
         where T: Decodable {
-            let decoder = StructureDecoder()
             return observe(eventType, with: { snap in
                 block(snap.decoded(using: decoder))
             }, withCancel: { error in
