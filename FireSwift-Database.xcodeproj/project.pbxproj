@@ -14,13 +14,6 @@
 		31620D6B2109ED7F00085F66 /* FireSwift-DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D6A2109ED7F00085F66 /* FireSwift-DatabaseTests.swift */; };
 		31620D6D2109ED7F00085F66 /* FireSwift-Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* FireSwift-Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31620D7E2109F05700085F66 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D7D2109F05700085F66 /* FirebaseExtensions.swift */; };
-		31620D8A2109F09700085F66 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D802109F09700085F66 /* FirebaseInstanceID.framework */; };
-		31620D8B2109F09700085F66 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D812109F09700085F66 /* FirebaseAnalytics.framework */; };
-		31620D8C2109F09700085F66 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D822109F09700085F66 /* nanopb.framework */; };
-		31620D8D2109F09700085F66 /* FirebaseCoreDiagnostics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D832109F09700085F66 /* FirebaseCoreDiagnostics.framework */; };
-		31620D8E2109F09700085F66 /* FirebaseNanoPB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D842109F09700085F66 /* FirebaseNanoPB.framework */; };
-		31620D8F2109F09700085F66 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D852109F09700085F66 /* GoogleToolboxForMac.framework */; };
-		31620D902109F09700085F66 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D862109F09700085F66 /* FirebaseCore.framework */; };
 		31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; };
 		31620D922109F09700085F66 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; };
 		31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; };
@@ -47,13 +40,6 @@
 		31620D6A2109ED7F00085F66 /* FireSwift-DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireSwift-DatabaseTests.swift"; sourceTree = "<group>"; };
 		31620D6C2109ED7F00085F66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31620D7D2109F05700085F66 /* FirebaseExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseExtensions.swift; sourceTree = "<group>"; };
-		31620D802109F09700085F66 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Carthage/Build/iOS/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		31620D812109F09700085F66 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Carthage/Build/iOS/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		31620D822109F09700085F66 /* nanopb.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = nanopb.framework; path = Carthage/Build/iOS/nanopb.framework; sourceTree = "<group>"; };
-		31620D832109F09700085F66 /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Carthage/Build/iOS/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
-		31620D842109F09700085F66 /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = Carthage/Build/iOS/FirebaseNanoPB.framework; sourceTree = "<group>"; };
-		31620D852109F09700085F66 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleToolboxForMac.framework; path = Carthage/Build/iOS/GoogleToolboxForMac.framework; sourceTree = "<group>"; };
-		31620D862109F09700085F66 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Carthage/Build/iOS/FirebaseCore.framework; sourceTree = "<group>"; };
 		31620D872109F09700085F66 /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Carthage/Build/iOS/leveldb-library.framework"; sourceTree = "<group>"; };
 		31620D882109F09700085F66 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		31620D892109F09700085F66 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Carthage/Build/iOS/FirebaseDatabase.framework; sourceTree = "<group>"; };
@@ -67,13 +53,6 @@
 				311A274E218B0A6F00992BC3 /* FireSwift_Paths.framework in Frameworks */,
 				311A274F218B0A6F00992BC3 /* FireSwift_DecodeResult.framework in Frameworks */,
 				311A274B218B082900992BC3 /* FireSwift_StructureCoding.framework in Frameworks */,
-				31620D8A2109F09700085F66 /* FirebaseInstanceID.framework in Frameworks */,
-				31620D8B2109F09700085F66 /* FirebaseAnalytics.framework in Frameworks */,
-				31620D8C2109F09700085F66 /* nanopb.framework in Frameworks */,
-				31620D8D2109F09700085F66 /* FirebaseCoreDiagnostics.framework in Frameworks */,
-				31620D8E2109F09700085F66 /* FirebaseNanoPB.framework in Frameworks */,
-				31620D8F2109F09700085F66 /* GoogleToolboxForMac.framework in Frameworks */,
-				31620D902109F09700085F66 /* FirebaseCore.framework in Frameworks */,
 				31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */,
 				31620D922109F09700085F66 /* Result.framework in Frameworks */,
 				31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */,
@@ -135,15 +114,8 @@
 				311A274D218B0A6F00992BC3 /* FireSwift_DecodeResult.framework */,
 				311A274C218B0A6F00992BC3 /* FireSwift_Paths.framework */,
 				311A274A218B082900992BC3 /* FireSwift_StructureCoding.framework */,
-				31620D812109F09700085F66 /* FirebaseAnalytics.framework */,
-				31620D862109F09700085F66 /* FirebaseCore.framework */,
-				31620D832109F09700085F66 /* FirebaseCoreDiagnostics.framework */,
 				31620D892109F09700085F66 /* FirebaseDatabase.framework */,
-				31620D802109F09700085F66 /* FirebaseInstanceID.framework */,
-				31620D842109F09700085F66 /* FirebaseNanoPB.framework */,
-				31620D852109F09700085F66 /* GoogleToolboxForMac.framework */,
 				31620D872109F09700085F66 /* leveldb-library.framework */,
-				31620D822109F09700085F66 /* nanopb.framework */,
 				31620D882109F09700085F66 /* Result.framework */,
 			);
 			name = Frameworks;
