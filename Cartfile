@@ -1,6 +1,6 @@
 # Third party frameworks
-git "../FireSwift-StructureCoding" "master"
-git "../FireSwift-DecodeResult" "master"
-git "../FireSwift-Paths" "master"
+github "ka-ching-as/FireSwift-StructureCoding" "master"
+github "ka-ching-as/FireSwift-DecodeResult" "master"
+github "ka-ching-as/FireSwift-Paths" "master"
 
 binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" == 5.11.0
