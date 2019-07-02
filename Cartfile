@@ -3,4 +3,4 @@ github "ka-ching-as/FireSwift-StructureCoding" "master"
 github "ka-ching-as/FireSwift-DecodeResult" "master"
 github "ka-ching-as/FireSwift-Paths" "master"
 
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" == 5.11.0
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" == 6.3.0
