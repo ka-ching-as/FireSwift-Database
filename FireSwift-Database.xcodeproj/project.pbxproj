@@ -27,7 +27,6 @@
 		31620D6D2109ED7F00085F66 /* FireSwift-Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 31620D5F2109ED7F00085F66 /* FireSwift-Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31620D7E2109F05700085F66 /* FirebaseExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31620D7D2109F05700085F66 /* FirebaseExtensions.swift */; };
 		31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D872109F09700085F66 /* leveldb-library.framework */; };
-		31620D922109F09700085F66 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D882109F09700085F66 /* Result.framework */; };
 		31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31620D892109F09700085F66 /* FirebaseDatabase.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +83,6 @@
 				311A274F218B0A6F00992BC3 /* FireSwift_DecodeResult.framework in Frameworks */,
 				311A274B218B082900992BC3 /* FireSwift_StructureCoding.framework in Frameworks */,
 				31620D912109F09700085F66 /* leveldb-library.framework in Frameworks */,
-				31620D922109F09700085F66 /* Result.framework in Frameworks */,
 				31620D932109F09700085F66 /* FirebaseDatabase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

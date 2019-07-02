@@ -1,5 +1,4 @@
-binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" "5.11.0"
-github "antitypical/Result" "4.0.0"
-github "ka-ching-as/FireSwift-DecodeResult" "ba74040d8aaffb57a6dca5f5927b9a11ed366e92"
-github "ka-ching-as/FireSwift-Paths" "77a8b1f568cbc9e93496a64b9c51d36b91984917"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" "6.3.0"
+github "ka-ching-as/FireSwift-DecodeResult" "406510f3b90636b6a994b20a291cbd13e47bb2fd"
+github "ka-ching-as/FireSwift-Paths" "f9ff31f3158072e59769f60714c1db62e029d10c"
 github "ka-ching-as/FireSwift-StructureCoding" "4211759ca9614d35b7db6fe348a60e7c3f5f9448"
